@@ -16,7 +16,6 @@ public class UserDAO extends CommonDAO {
         List<UserValue> userList = new ArrayList<>();
         String sql = "SELECT * FROM user";
 
-
         try (PreparedStatement ps = getCon().prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
 
@@ -37,7 +36,7 @@ public class UserDAO extends CommonDAO {
 
     public UserValue findById(int id) {
         String sql = "SELECT * FROM user WHERE id = ?";
-        UserValue user = null;
+        UserValue user = new UserValue();
 
         try (PreparedStatement ps = getCon().prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
